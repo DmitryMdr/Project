@@ -6,7 +6,7 @@ include "../configs/db.php";
 include "../configs/settings.php";
 include "../parts/header.php";
 
-
+// второй варинт сообщений
 if (isset($_GET['id'])) {
 ?>
 

@@ -19,7 +19,7 @@
       <?php
         if(isset($_GET["id"])){
           
-          
+          // подклчение к таблице сообщений
           $sql_2 = "SELECT * FROM messages " . 
           " WHERE (komu_user_id = " . $_GET["id"] . " AND ot_user_id = '" . $user_auth . "')" . " OR (komu_user_id = '" . $user_auth . "' AND ot_user_id = " . $_GET["id"] . ")" ;
 	          // выполнить запрос бд
