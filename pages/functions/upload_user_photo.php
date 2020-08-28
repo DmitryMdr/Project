@@ -1,4 +1,5 @@
 <?php
+// функция добавления фотографии пользователю
 include '../../configs/settings.php';
 include '../../configs/db.php';
 	// запрос о выборе всего, где айди равен айди из куков
@@ -19,13 +20,13 @@ include '../../configs/db.php';
 				$target = '../../' . $path  . $filename . '.' . $extension;
 				
 				if (move_uploaded_file($_FILES['uploadfile']['tmp_name'], $target) ) {
-				    echo "Файл корректен и был успешно загружен.";
+				    echo "Файл загружен";
 				} else {
-				    echo "Возможная атака с помощью файловой загрузки!";
+				    echo "Файл не загружен";
 				}
-
+					//  обновление таблицы с пользователями, для внесения адреса картинки
 					$sql = "UPDATE register SET photo = '" . $todb . "' WHERE register.id = '" . $user_auth . "' ";
-					
+					// если запрос выполнился
 					if ( mysqli_query($connect, $sql) ) {
 								echo " запись в бд";
 								// закоментаровать header, что бы посмотреть инфо по файлу

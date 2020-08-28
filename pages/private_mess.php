@@ -8,6 +8,7 @@ include "../parts/header.php";
 
 if (isset($user_auth) ){
 	$sql = "SELECT * FROM register WHERE id !=".$user_auth;
+	
 } else {
 	$sql = "SELECT * FROM register";
 }
@@ -15,19 +16,15 @@ if (isset($user_auth) ){
 $result = mysqli_query($connect, $sql);
 $col_polsovateli = mysqli_num_rows($result);
 
-
-
 ?>
 
 <div class="container">
 	<div class="cont" style="padding-top: 100px;">
 
 		<div class="cont_left">
-			
 			<ul>
-
 				<?php
-
+				// вывод списка пользователей
 					$i = 0;
 					while($i < $col_polsovateli) {
 						$names = mysqli_fetch_assoc($result);

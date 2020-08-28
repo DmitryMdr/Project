@@ -1,5 +1,5 @@
 <?php
-// Личный кабинет
+// страница редктирования пользователя
 $page = "privat";
 include "../configs/db.php";
 // настройки, тут лежи проверка на куки, для вхда или выхода.
@@ -13,7 +13,6 @@ include "../parts/header.php";
 
 			if (isset($_GET['id'])) {
 		
-			
 				$sql = "SELECT * FROM register WHERE id =" . $_GET["id"];
 				$result = mysqli_query($connect, $sql);
 				$item = mysqli_fetch_assoc($result);
@@ -56,7 +55,7 @@ include "../parts/header.php";
 
 			</form>
 		</div>
-
+		<!-- редактирование фото к профилю -->
 		<div class="right_coll" >
 			<p>
 			<h4>Добавить или изменить фото к профилю</h4>

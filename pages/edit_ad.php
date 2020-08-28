@@ -1,5 +1,5 @@
 <?php
-$page = "edit_ad";
+// Страница редактирования объявления
 include "../configs/db.php";
 include "../configs/settings.php";
 include "../parts/header.php";
