@@ -16,9 +16,6 @@ if (isset($user_auth) ){
 $result = mysqli_query($connect, $sql);
 $col_polsovateli = mysqli_num_rows($result);
 
-$sql_messages = "SELECT * FROM messages WHERE ot_user_id =".$user_auth." OR komu_user_id =".$user_auth;
-$result_messages = mysqli_query($connect, $sql_messages);
-
 ?>
 
 <div class="container">
@@ -32,7 +29,7 @@ $result_messages = mysqli_query($connect, $sql_messages);
 					while($i < $col_polsovateli) {
 						$names = mysqli_fetch_assoc($result);
 						//запрос в БД на наличие сообщений от/кому пользователя из списка пользователей
-						$sql_messages = "SELECT * FROM messages WHERE ot_user_id =".$names["id"]." OR komu_user_id =".$names["id"];
+						$sql_messages = "SELECT * FROM messages WHERE ot_user_id = '" . $names["id"] . "' AND komu_user_id ='" . $user_auth . "' OR ot_user_id = '" . $user_auth . "' AND komu_user_id = '" . $names["id"] . "' ";
 						$result_messages = mysqli_query( $connect, $sql_messages );
 						$col_messages = mysqli_fetch_assoc ($result_messages );
 						
