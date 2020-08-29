@@ -20,8 +20,21 @@ include "../configs/settings.php";
 					<input class="input" type="text" name="status" placeholder="Статус" autocomplete="off">
 					<input class="input" type="hidden" name="MAX_FILE_SIZE" value="5000000" />
 					<input class="inputfile" id="file" type="file" name="uploadfile"/>
-					<label for="file">Добавить фотографию</label>
+					
+					<label id="lablefile" for="file">Добавить фотографию</label>
+					<!-- смена названия кнопки -->
+					<script type="text/javascript"> 
+						
+						var fileget = document.getElementById("file");
+						var lablefile = document.querySelector("#lablefile");
 
+						fileget.onchange = function(){
+			
+							lablefile.innerText = "Добавлено: " + fileget.files[0].name;
+							
+						} 
+						
+					 </script>
 					<p class="info">Все поля должны быть заполнены!</p>
 
 					<button class="button" type="submit">Загрузить</button>

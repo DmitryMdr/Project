@@ -30,7 +30,7 @@ include '../../configs/db.php';
 					if ( mysqli_query($connect, $sql) ) {
 								echo " запись в бд";
 								// закоментаровать header, что бы посмотреть инфо по файлу
-								header("location: ../privateoffice.php");
+								header("location: ../edit_user.php?id=".$user_auth);
 							} else {
 								echo " НЕзапись в бд";
 							}

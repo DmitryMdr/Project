@@ -36,9 +36,11 @@ if (isset($_POST['city']) && isset($_POST['adress_kv']) && isset($_POST['descrip
 			}
 			// если какой то из запрсов сработал, то идет перенапрвление в личный кабинет
 			if ( mysqli_query($connect, $sql) ) {
-				echo " запись в бд";
-				// закоментаровать header, что бы посмотреть инфо по файлу
-				header("location: ../privateoffice.php");
+			
+				echo ("<script LANGUAGE='JavaScript'>
+									    window.alert('Ваше объявление добавлено');
+									    window.location.href='../privateoffice.php';
+									    </script>");
 			} else {
 				echo " НЕзапись в бд";
 			}

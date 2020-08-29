@@ -29,9 +29,13 @@ if (isset($_GET['id'])) {
 				} else {
 					echo "Что то не так";
 				}
+
+				} else {
+
+				}
+				
 			}
 		
-			
 		?>
 	</div>
 </div>

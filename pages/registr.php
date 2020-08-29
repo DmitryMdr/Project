@@ -33,11 +33,12 @@ include "../parts/header.php";
 				<input class="input reg" type="password" name="password" placeholder="Пароль">
 
 				<p class="info">Все поля должны быть заполнены!</p>
+				
 				<button class="button">Зарегестрироваться</button>
-
+			
 			</form>
 			<!-- ссылка для  -->
-			<a href="auth.php">Войти</a>
+			
 			<?php
 				// Проверка на существование и заполненность всех полей в форме
 				if( 
@@ -49,25 +50,36 @@ include "../parts/header.php";
 					){
 				  	
 				  	// Сравнение полученных данный с формы с данными в БД
-					$sql = "SELECT * FROM register WHERE email LIKE '" . $_POST['email'] . "' OR phone_num LIKE '" . $_POST['phone_num'] . "' ";
-				    	$result = mysqli_query($connect, $sql);
-				    	$row = mysqli_fetch_assoc($result);
-				    // Проверка на совпадение по номеру телефона и емайлу
-				    if ($_POST['email'] == $row['email'] OR $_POST['phone_num'] == $row['phone_num']) {
-				    	echo "Такой пользователь уже существует";
-				    } else {
-				    	// приведение поля e-mail в нижний регистр
-				    	$email = strtolower($_POST['email']);
-				    	// запись в БД даных из формы
-				    	$sql = "INSERT INTO register (name, surname, phone_num, adress_user, denomination, church_name, church_adress, pastor_num, email, password) VALUES ('" . $_POST["name"] . "', '" . $_POST["surname"] . "', '" . $_POST["phone_num"] . "', '" . $_POST["adress_user"] . "', '" . $_POST["denomination"] . "', '" . $_POST["church_name"] . "', '" . $_POST["church_adress"] . "', '" . $_POST["pastor_num"] . "', '" . $email . "', '" . $_POST["password"] . "');";
+					$sql_1 = "SELECT * FROM register WHERE email LIKE '" . $_POST['email'] . "' OR phone_num LIKE '" . $_POST['phone_num'] . "' ";
+					$result_1 = mysqli_query($connect, $sql_1);
+					$rows_col = mysqli_num_rows($result_1); 
+					    // Проверка на совпадение по номеру телефона и емайлу
+					    if ($rows_col >= 1) {
+					    	var_dump($rows_col);
+					    	?>
+							 	<script type="text/javascript">alert('Такой пользователь уже существует');</script>
+							 <?php
+				    		
+				    		
+					    } else {
+					    	var_dump($rows_col);
+					    	// приведение поля e-mail в нижний регистр
+					    	$email = strtolower($_POST['email']);
+					    	// запись в БД даных из формы
+					    	$sql = "INSERT INTO register (name, surname, phone_num, adress_user, denomination, church_name, church_adress, pastor_num, email, password) VALUES ('" . $_POST["name"] . "', '" . $_POST["surname"] . "', '" . $_POST["phone_num"] . "', '" . $_POST["adress_user"] . "', '" . $_POST["denomination"] . "', '" . $_POST["church_name"] . "', '" . $_POST["church_adress"] . "', '" . $_POST["pastor_num"] . "', '" . $email . "', '" . $_POST["password"] . "');";
 				    	
-					  if( mysqli_query($connect, $sql) ) {
-					  	// Если все прошло как надо - перенаправление на страницу авторизации
-					  	header("location: auth.php");
-					  } else {
-					    echo "<h2>Произошла ошибка</h2>" . mysqli_error($connect);
-					  }
-				    }
+							  if( mysqli_query($connect, $sql) ) {
+							  	// Если все прошло как надо - перенаправление на страницу авторизации
+							 	echo ("<script LANGUAGE='JavaScript'>
+									    window.alert('Можете авторизоваться');
+									    window.location.href='auth.php';
+									    </script>");
+							 		 // header("location: auth.php");
+							  } else {
+							    echo "<h2>Произошла ошибка</h2>" . mysqli_error($connect);
+							  }
+							}
+				    // }
 				} else {
 					echo "";
 				}

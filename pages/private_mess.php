@@ -16,6 +16,9 @@ if (isset($user_auth) ){
 $result = mysqli_query($connect, $sql);
 $col_polsovateli = mysqli_num_rows($result);
 
+$sql_messages = "SELECT * FROM messages WHERE ot_user_id =".$user_auth." OR komu_user_id =".$user_auth;
+$result_messages = mysqli_query($connect, $sql_messages);
+
 ?>
 
 <div class="container">
@@ -28,13 +31,22 @@ $col_polsovateli = mysqli_num_rows($result);
 					$i = 0;
 					while($i < $col_polsovateli) {
 						$names = mysqli_fetch_assoc($result);
-						?>
-						<li>
-							<a style="color: black;" href="private_mess.php?id=<?php echo $names["id"]; ?>"><?php echo $names["name"]; ?></a>
-						</li>
+						//запрос в БД на наличие сообщений от/кому пользователя из списка пользователей
+						$sql_messages = "SELECT * FROM messages WHERE ot_user_id =".$names["id"]." OR komu_user_id =".$names["id"];
+						$result_messages = mysqli_query( $connect, $sql_messages );
+						$col_messages = mysqli_fetch_assoc ($result_messages );
+						
+						
+						//Если есть сообщения для/от проверяемого пользователя віводим его в списке сообщений
+						if ( $col_messages > 0 ) {
+							?>
+							<li>
+								<a style="color: black;" href="private_mess.php?id=<?php echo $names["id"]; ?>"><?php echo $names["name"]; ?></a>
+							</li>
 						<?php
-							$i = $i + 1;
 						}
+						$i = $i + 1;
+					}
 				?>
 			</ul>
 

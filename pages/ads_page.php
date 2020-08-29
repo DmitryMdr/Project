@@ -13,7 +13,12 @@ $page = "ads";
 	?>
 		<a href="user_public.php?id=<?php echo $item['user_id'] ?>" style="color: black;">Просмотреть профиль пользователя</a>
 		<p>
-		<a href="messages.php?id=<?php echo $item['user_id']; ?>&ida=<?php echo $item['id']; ?>" style="color: black;">Написать пользователю</a>
+			<form   method="POST">
+				<textarea name="send_mes" style="width: 100%; height: 150px; resize: none;"></textarea>
+				<button type="submit" style="width: 100%; height: 50px;">Отправить</button>
+			</form>
+		</p>
+	
 		<p>
 			<h4>Номер объявлеия: <?php echo $item['id']; ?></h4>
 		<p>
@@ -35,6 +40,33 @@ $page = "ads";
 		<p>
 			<img src="../<?php echo $item['photo'] ?>" style="width: 480px;">
 		</p>
+		<?php
+
+		
+?>
+
+
+
+		<?php
+		
+			if (isset($_POST['send_mes']) && $_POST['send_mes'] !="") {
+				$sql = "INSERT INTO `messages` (`komu_user_id`, `ot_user_id`, `text`) VALUES 
+				('" . $item['user_id'] . "', '" . $user_auth . "', '" . $_POST['send_mes'] . "')";
+
+				if ( mysqli_query($connect, $sql) ) {
+					header("location: ads_page.php?id=".$_GET['id']);
+				} else {
+					echo "Что то не так";
+				}
+
+				} else {
+
+				}
+				
+			
+		
+		?>
+
 	<?php
 
 ?>
