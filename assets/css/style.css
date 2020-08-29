@@ -62,7 +62,7 @@ hr {
 	left: 0;
 	right: 0;
 	top: 0;
-	background-color: #222;
+	background-color: #593;
 }
 
 .header__inner {
@@ -146,9 +146,9 @@ hr {
 }
 
 .search {
-	background-color: #f8f8f8;
+
 	padding-top: 120px;
-	padding-bottom: 25px;
+	padding-bottom: 10px;
 }
 
 /* Subscribe */
@@ -176,9 +176,8 @@ hr {
 	border-right: 0;
 
 	font-family: 'Roboto', sans-serif;
-	font-size: 15px;
+	font-size: 20px;
 	line-height: 1.1;
-	color: #000;
 	font-weight: 300;
 }
 
@@ -188,7 +187,8 @@ hr {
 
 .subscribe__input:focus {
 	outline: 0;
-	border-color: #95e1d3;
+	border-color: #89e05d;
+	color: #444;
 }
 
 .subscribe__button {
@@ -196,23 +196,24 @@ hr {
 	height: 70px;
 	padding: 12px 30px;
 
-	background-color: #95e1d3;
+	background-color: #888888b3;
 
 	border: 0;
 	cursor: pointer;
 
-	font-family: 'Montserrat', sans-serif;
-	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
 	line-height: 1.1;
 	font-weight: 700;
 	color: #fff;
 	text-transform: uppercase;
 
-	transition: background .15s linear;
+	transition: .15s linear;
 }
 
 .subscribe__button:hover {
-	background-color: #6CB2A5;
+	background-color: #888888;
+	color: #fce38a;
 }
 
 .subscribe__button:focus {
@@ -244,13 +245,16 @@ hr {
 	position: relative;
 	cursor: pointer;
 
-	background: #222;
+	background: #41920e;
+
+	transition: .15s linear;
 }
 
-.regions__item:hover .regions__info {
-	opacity: 1;
-	color: #fce38a;
+.regions__item:hover {
+	background: #41BB0E;
 }
+
+
 
 .regions__info {
 
@@ -258,7 +262,7 @@ hr {
 
 	text-align: center;
 	color: #fff;
-	opacity: 0.5;
+
 
 	position: absolute;
 	z-index: 1;
@@ -266,14 +270,20 @@ hr {
 	left: 0;
 
 	transform: translate3d(0, -50%, 0);
-	transition: opacity .2s linear;
+	transition: .15s linear;
 }
 
 .regions__title {
 	margin-bottom: 7px;
 
-	font-size: 14px;
-	text-transform: uppercase;
+	font-size: 22px;
+
+	color: #fff;
+	/*text-transform: uppercase;*/
+}
+
+.regions__item:hover .regions__title {
+	color: #fce38a;
 }
 
 /* Footer */
@@ -282,14 +292,14 @@ hr {
 	width: 100%;
 	height: 100px;
 	padding-top: 10px;
-	background-color: #222;
+	background-color: #593;
 	flex-shrink: 0;
 }
 
 .footer a {
 	text-align: center;
 	display: block;
-	opacity: 0.5;
+	opacity: 0.8;
 	transition: opacity .2s linear;
 }
 
@@ -300,66 +310,152 @@ hr {
 }
 
 /***********************************************************
-Регистрация/авторизация
+Authorization
 ***********************************************************/
 
 .regauth {
-	position: absolute;
     padding-top: 75px;
 }
 
-.regauth button {
-	width: 177px;
+.wrapper__regauth {
+	width: 220px;
+	margin: 0 auto;
+	padding-top: 50px;
 }
 
+.input {
+	margin-bottom: 15px;
+
+	padding: 12px;
+
+	background: #fff;
+	border: solid #e7e7e7 1px;
+	border-radius: 5px;
+
+	font-family: 'Roboto', sans-serif;
+	font-size: 15px;
+	line-height: 1.1;
+	color: #000;
+	font-weight: 300;
+
+	transition: .15s linear;
+}
+
+.input::placeholder {
+	color: #ccc;
+}
+
+.input:focus {
+	outline: 0;
+	border-color: #89e05d;
+}
+
+.button {
+	width: 220px;
+	background-color: #fff;
+	border: 1px solid #89e05d;
+	border-radius: 5px;
+	height: 30px;
+	cursor: pointer;
+	transition: .15s linear;
+	color: #89e05d;
+	font-weight: bold;
+}
+
+.button:hover {
+	background-color: #89e05d;
+	color: #fff;
+	border: 1px solid #e7e7e7;
+}
+
+.info {
+	font-weight: bold;
+	margin: 0 0 5px 0;
+	text-align: center;
+	color: #333;
+	opacity: 0.7;
+}
+
+/*======================
+Registration
+========================*/
+
+.reg {
+	margin: 0 0 10px 0;
+}
+
+/*======================
+Logo
+========================*/
 #logo {
 	color: #fff;
 }
 
+/*======================
+Index page
+========================*/
+.centers__title {
+	color: #5E5E5E;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+/*======================
+New ad 
+========================*/
+
+.textarea {
+	resize: none;
+	width: 300px;
+
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+	text-align: center;
+	width: 220px;
+	margin-bottom: 10px;
+	padding: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #5E5E5E;
+    border: 1px solid #8E8E8E;
+    border-radius: 5px;
+
+    display: inline-block;
+    cursor: pointer;
+    transition: .15s linear;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #8E8E8E;
+    color: #fce38a	;
+}
+
+/*======================
+Private Office
+========================*/
+
 .cont {
-	width: 100%;
+	display: flex;	
 	padding-top: 100px;
 }
 
-/***********************************************************
-Личный кабинет
-***********************************************************/
-
-.left_coll {
-	position: absolute;
-	width: 40%;
-	margin: 0; 
-	left: 0px;
-	overflow:scroll;
-	height: 550%;
-}
-.left_coll img {
-	width: 400px;
+.left__coll_title {
+	text-align: center;
+	margin-bottom: 20px;
 }
 
-.right_coll {
-	position: absolute;
-	width: 60%; 
-	margin: 0; 
-	right: 0px;
-	overflow:scroll;
-	height: 550%;
-}
-
-.cont_left{
-	position: absolute;
-	width: 30%;
-	margin: 0; 
-	left: 0px;
-	overflow: scroll;
-	height: 550%;
-}
-
-.cont_right{
-	position: absolute;
-	width: 70%; 
-	margin: 0; 
-	right: 0px;
-	overflow:scroll;
-	height: 550%;
+.cont__img {
+	float: left;
+	width: 50px;
 }

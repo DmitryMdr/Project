@@ -16,16 +16,17 @@ include "../parts/header.php";
 ?>
 
 <div class="container">
-	<div class="cont" style="padding-top: 100px;">
+	<div class="cont">
 		<div class="left_coll">
 			<p>
-				<h4>Профиль пользователя</h4>
-				<p>
-					<a href="private_mess.php?id=<?php echo $item2['id']; ?>" style="color: black;">Личные сообщения</a>
-				</p>
-				<p>
-					<img src="../<?php echo $row['photo'] ?>" style="width: 400px;">
-				<p>
+				<h4 class="left__coll_title">Профиль пользователя</h4>
+					
+
+		
+				<img class="cont__img" src="../<?php echo $row['photo'] ?>">
+	
+					
+
 					<h4>Имя: <?php echo $item2['name']; ?></h4>
 				<p>
 					<h4>Фамилия: <?php echo $item2['surname']; ?></h4>
@@ -44,6 +45,7 @@ include "../parts/header.php";
 				<p>
 					<h4>Адрес электронной почты: <?php echo $item2['email']; ?></h4>
 				<p>
+					<a href="private_mess.php?id=<?php echo $item2['id']; ?>" style="color: black;">Личные сообщения</a>
 				<a href="edit_user.php?id=<?php echo $item2['id'] ?>" style="color: black;">Редактировать профиль</a>
 		</div>
 
