@@ -20,8 +20,7 @@ include "../configs/db.php";
 
 				<button class="button" type="submit">Войти</button>
 			</form>
-			<!-- ссылка на страницу регистрации -->
-			<a href="registr.php" >Зарегестрироваться</a>
+
 			<?php
 		// прверка на существование и не пустоту запросов
 			if (isset($_POST["email"]) && isset($_POST["password"]) && $_POST["email"] != "" && $_POST["password"] != "") {

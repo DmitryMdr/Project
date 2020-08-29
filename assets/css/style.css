@@ -438,7 +438,7 @@ New ad
 .inputfile:focus + label,
 .inputfile + label:hover {
     background-color: #8E8E8E;
-    color: #fce38a	;
+    color: #fce38a;
 }
 
 /*======================
@@ -448,14 +448,149 @@ Private Office
 .cont {
 	display: flex;	
 	padding-top: 100px;
+	height: 100%;
+}
+
+.left_coll {
+	border-right: solid 1px #DDD;
+	width: 100%;
+	max-width: 500px;
 }
 
 .left__coll_title {
 	text-align: center;
 	margin-bottom: 20px;
+
+}
+
+.user_img {
+	display: flex;
+
+}
+
+.link {
+	display: block;
+	text-align: center;
+	font-weight: 300;
+	height: 28px;
+	width: 150px;
+	margin-bottom: 5px;
+}
+
+.link:hover {
+	color: #fff;
 }
 
 .cont__img {
-	float: left;
-	width: 50px;
+	width: 150px;
+	margin-right: 10px;
+	border-radius: 10px;
+	margin-bottom: 15px;
 }
+
+.user__ifo_text {
+	font-size: 18px;
+
+
+}
+
+.user__ifo_text span {
+	font-weight: 300;
+}
+
+.right_coll {
+	display: flex;
+	flex-wrap: wrap;
+	height: 100%;
+	width: 100%;
+
+}
+
+.ad {
+	display: flex;
+	height: 150px;
+	width: 100%;
+	margin: 20px;
+	position: relative;
+}
+
+.ad_img {
+	width: 150px;
+	height: 150px;
+	margin-right: 20px;
+	border-radius: 10px;
+}
+
+.ad__info_text span {
+	font-weight: 300;
+}
+
+.ad_link {
+	text-align: center;
+	font-weight: 300;
+	height: 28px;
+	width: 150px;
+	position: absolute;
+	left: 170px;
+	top: 110px;
+}
+
+
+/*======================
+Edit Ad
+========================*/
+
+.wrapper__edit_ad {
+	margin: 0 auto;
+	width: 350px;
+	text-align: center;
+}
+
+.wrapper__flex_edit {
+	display: flex;
+	justify-content: space-between;
+}
+
+.wrapper__flex_edit label {
+	padding-top: 10px;
+}
+
+.edit_title {
+	margin: 10px;
+}
+
+#lablefile {
+	text-align: center;
+	width: 220px;
+	margin-bottom: 10px;
+	padding: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #5E5E5E;
+    border: 1px solid #8E8E8E;
+    border-radius: 5px;
+
+    display: inline-block;
+    cursor: pointer;
+    transition: .15s linear;
+}
+
+#lablefile:focus ,
+#lablefile:hover {
+    background-color: #8E8E8E;
+    color: #fce38a;
+}
+
+.delete_ad {
+	display: block;
+	margin-top: 5px;
+	color: #000;
+}
+
+.delete_ad:hover {
+	color: #89e05d;
+}
+
+/*======================
+Edit Ad
+========================*/

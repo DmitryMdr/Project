@@ -1,4 +1,5 @@
 <?php
+$page = "privat";
 // Страница редактирования объявления
 include "../configs/db.php";
 include "../configs/settings.php";
@@ -13,115 +14,128 @@ $item = mysqli_fetch_assoc($result);
 ?>
 
 		<div class="container">
-			<div class="" style="position: relative; padding-top: 80px;">
-				<h4 >Edit Product</h4>
-				
+			<div class="wrapper__edit_ad">
+				<div class="" style="position: relative; padding-top: 80px;">
+				<h4 class="edit_title">Редактирование объявления</h4>
+				</div>
+
+				<form action="functions/upload.php" method="post" enctype="multipart/form-data">
+					
+					<input type="hidden" name="edit" value="">
+					<div >
+						<div >
+							<div >
+								<input name = "id" type="hidden" value = "<?php echo $item["id"]; ?>" >
+							</div>
+						</div>
+					</div>
+					<div >
+						<div >
+							<div >
+								<input name = "user_id" type="hidden" value = "<?php echo $item["user_id"]; ?>" >
+							</div>
+						</div>
+					</div>
+					<div >
+						<div >
+							<div class="wrapper__flex_edit">
+								<label>Имя:</label>
+								<input class="input" name = "user_name" type="text" value = "<?php echo $item["user_name"]; ?>">
+							</div>
+						</div>
+					</div>
+					<div >
+						<div >
+							<div class="wrapper__flex_edit">
+								<label>Телефон:</label>
+								<input class="input" name = "phone_num" type="text" value = "<?php echo $item["phone_num"]; ?>"></input>
+							</div>
+						</div>
+					</div>
+					<div >
+						<div >
+							<div class="wrapper__flex_edit">
+								<label>Город:</label>
+								<input class="input" name = "city" type="text" value = "<?php echo $item["city"]; ?>"></input>
+							</div>
+						</div>
+					</div>
+					<div >
+						<div >
+							<div class="wrapper__flex_edit">
+								<label>Адрес:</label>
+								<input class="input" name = "adress_kv" type="text" value = "<?php echo $item["adress_kv"]; ?>"></input>
+							</div>
+						</div>
+					</div>
+					<div >
+						<div >
+							<div class="wrapper__flex_edit">
+								<label>Описание:</label>
+								<input class="input" name = "description" type="text" value = "<?php echo $item["description"]; ?>"></input>
+							</div>
+						</div>
+					</div>
+					<div >
+						<div >
+							<div class="wrapper__flex_edit">
+								<label>Инфраструктура:</label>
+								<input class="input" name = "infrast" type="text" value = "<?php echo $item["infrast"]; ?>"></input>
+							</div>
+						</div>
+					</div>
+					<div >
+						<div >
+							<div class="wrapper__flex_edit">
+								<label>Достопремичания:</label>
+								<input class="input" name = "attractions" type="text" value = "<?php echo $item["attractions"]; ?>"></input>
+							</div>
+						</div>
+					</div>
+					<div >
+						<div >
+							<div class="wrapper__flex_edit">
+								<label>Условия:</label>
+								<input class="input" name = "terms" type="text" value = "<?php echo $item["terms"]; ?>"></input>
+							</div>
+						</div>
+					</div>
+					<div >
+						<div >
+							<div class="wrapper__flex_edit">
+								<label>Статус:</label>
+								<input class="input" name = "status" type="text" value = "<?php echo $item["status"]; ?>" ></input>
+							</div>
+						</div>
+					</div>
+					<div >
+						<div >
+							<div >
+								<label id="lablefile" for="file">Фото</label>
+								<!-- смена названия кнопки -->
+								<script type="text/javascript"> 
+									
+									var fileget = document.getElementById("file");
+									var lablefile = document.querySelector("#lablefile");
+
+									fileget.onchange = function(){
+						
+										lablefile.innerText = "Добавлено: " + fileget.files[0].name;
+										
+									} 
+									
+								 </script>
+								<input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
+								<input class="inputfile" id="file" type="file" name="uploadfile"/>
+							</div>
+						</div>
+					</div>
+					<button class="button" name = "submit" type="submit" value = "1">Редактировать</button>
+					<div class="clearfix"></div>
+				</form>
+				<a class="delete_ad" href="functions/delete_ad.php?id=<?php echo $item["id"]; ?>">Удалить объявление</a>
 			</div>
-			<form action="functions/upload.php" method="post" enctype="multipart/form-data">
-				<input type="hidden" name="edit" value="">
-				<div >
-					<div >
-						<div >
-							<input name = "id" type="hidden" value = "<?php echo $item["id"]; ?>" >
-						</div>
-					</div>
-				</div>
-				<div >
-					<div >
-						<div >
-							<input name = "user_id" type="hidden" value = "<?php echo $item["user_id"]; ?>" >
-						</div>
-					</div>
-				</div>
-				<div >
-					<div >
-						<div>
-							<label>Name</label>
-							<input name = "user_name" type="text" value = "<?php echo $item["user_name"]; ?>">
-						</div>
-					</div>
-				</div>
-				<div >
-					<div >
-						<div >
-							<label>Номер телефона</label>
-							<input name = "phone_num" type="text" value = "<?php echo $item["phone_num"]; ?>"></input>
-						</div>
-					</div>
-				</div>
-				<div >
-					<div >
-						<div >
-							<label>Город</label>
-							<input name = "city" type="text" value = "<?php echo $item["city"]; ?>"></input>
-						</div>
-					</div>
-				</div>
-				<div >
-					<div >
-						<div >
-							<label>Адрес</label>
-							<input name = "adress_kv" type="text" value = "<?php echo $item["adress_kv"]; ?>"></input>
-						</div>
-					</div>
-				</div>
-				<div >
-					<div >
-						<div >
-							<label>Описание</label>
-							<input name = "description" type="text" value = "<?php echo $item["description"]; ?>"></input>
-						</div>
-					</div>
-				</div>
-				<div >
-					<div >
-						<div >
-							<label>Инфраструктура</label>
-							<input name = "infrast" type="text" value = "<?php echo $item["infrast"]; ?>"></input>
-						</div>
-					</div>
-				</div>
-				<div >
-					<div >
-						<div >
-							<label>Атракционы</label>
-							<input name = "attractions" type="text" value = "<?php echo $item["attractions"]; ?>"></input>
-						</div>
-					</div>
-				</div>
-				<div >
-					<div >
-						<div >
-							<label>Terms</label>
-							<input name = "terms" type="text" value = "<?php echo $item["terms"]; ?>"></input>
-						</div>
-					</div>
-				</div>
-				<div >
-					<div >
-						<div >
-							<label>Статус</label>
-							<input name = "status" type="text" value = "<?php echo $item["status"]; ?>" ></input>
-						</div>
-					</div>
-				</div>
-				<div >
-					<div >
-						<div >
-							<label>фото</label>
-							<input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
-							<p>
-							<input type="file" name="uploadfile"/>
-						</div>
-					</div>
-				</div>
-				<button name = "submit" type="submit" value = "1">Редактировать</button>
-				<div class="clearfix"></div>
-			</form>
-			<a href="functions/delete_ad.php?id=<?php echo $item["id"]; ?>" style="color: black;">Удалить объявлеие</a>
         </div>
-	</div> <!-- /.wrapper -->
-	
 <?php
 }
 	include "../parts/footer.php";

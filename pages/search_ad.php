@@ -20,7 +20,7 @@ include "../parts/header.php";
 </div>
 
 <div class="container">
-	<div class="cont" style="padding-top: 20px;">
+	
 			
 		
 <?php
@@ -30,22 +30,28 @@ if ($ads == 0) {
 
 while ($ads = mysqli_fetch_assoc($result) ) {
 	?>
-		<a href="ads_page.php?id=<?php echo $ads['id']; ?>" style="color: black;">Перейти на страницу объявления</a>
-		<p>
-			<h4>Номер объявлеия: <?php echo $ads['id']; ?></h4>
-		<p>
-			<h4>Номер телефона: <?php echo $ads['phone_num']; ?></h4>
-		<p>
-			<h4>Город: <?php echo $ads['city']; ?></h4>
-		<p>
-			<h4>Адрес картиры: <?php echo $ads['adress_kv']; ?></h4>
-		<p>
-			<img src="../<?php echo $ads['photo'] ?>" style="width: 480px;">
-		</p>
+		<div class="ad">
+			<img class="ad_img" src="../<?php echo $ads['photo'] ?>">
+			<div class="ad_info">
+				<h4>Номер объявлеия: <?php echo $ads['id']; ?></h4>
+
+				<h4>Номер телефона: <?php echo $ads['phone_num']; ?></h4>
+
+				<h4>Город: <?php echo $ads['city']; ?></h4>
+
+				<h4>Адрес картиры: <?php echo $ads['adress_kv']; ?></h4>
+			</div>
+
+			<h4 class="description">Описание: <?php echo $ads['description']; ?></h4>
+			
+			<a class="button link search__ad_link" href="ads_page.php?id=<?php echo $ads['id']; ?>">Посмотреть</a>
+		</div>
+
+
 	<?php
 	}
 ?>	
-	</div>
+
 	</div>
 <?php
 	include "../parts/footer.php";

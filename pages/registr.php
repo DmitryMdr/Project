@@ -55,7 +55,6 @@ include "../parts/header.php";
 					$rows_col = mysqli_num_rows($result_1); 
 					    // Проверка на совпадение по номеру телефона и емайлу
 					    if ($rows_col >= 1) {
-					    	var_dump($rows_col);
 					    	?>
 							 	<script type="text/javascript">alert('Такой пользователь уже существует');</script>
 							 <?php

@@ -18,35 +18,40 @@ include "../parts/header.php";
 <div class="container">
 	<div class="cont">
 		<div class="left_coll">
-			<p>
 				<h4 class="left__coll_title">Профиль пользователя</h4>
 					
 
-		
-				<img class="cont__img" src="../<?php echo $row['photo'] ?>">
-	
-					
+				<div class="user_img">
+					<img class="cont__img" src="../<?php echo $row['photo'] ?>">
+					<div class="user_links">
+						<a class="button link" href="private_mess.php?id=<?php echo $item2['id']; ?>" >Cообщения</a>
+						<a class="button link" href="edit_user.php?id=<?php echo $item2['id']; ?>" >Редактировать</a>
+					</div>
+				</div>
+				
+				
+					<div class="user_info">
+						<h4 class="user__ifo_text"><span>Имя:</span> <?php echo $item2['name']; ?></h4>
 
-					<h4>Имя: <?php echo $item2['name']; ?></h4>
-				<p>
-					<h4>Фамилия: <?php echo $item2['surname']; ?></h4>
-				<p>
-					<h4>Номер телефона: <?php echo $item2['phone_num']; ?></h4>
-				<p>
-					<h4>Адрес: <?php echo $item2['adress_user']; ?></h4>
-				<p>
-					<h4>Конфессия: <?php echo $item2['denomination']; ?></h4>
-				<p>
-					<h4>Название церкви: <?php echo $item2['church_name']; ?></h4>
-				<p>
-					<h4>Адрес церкви: <?php echo $item2['church_adress']; ?></h4>
-				<p>
-					<h4>Номер пастора: <?php echo $item2['pastor_num']; ?></h4>
-				<p>
-					<h4>Адрес электронной почты: <?php echo $item2['email']; ?></h4>
-				<p>
-					<a href="private_mess.php?id=<?php echo $item2['id']; ?>" style="color: black;">Личные сообщения</a>
-				<a href="edit_user.php?id=<?php echo $item2['id'] ?>" style="color: black;">Редактировать профиль</a>
+						<h4 class="user__ifo_text"><span>Фамилия:</span> <?php echo $item2['surname']; ?></h4>
+			
+						<h4 class="user__ifo_text"><span>Номер телефона:</span> <?php echo $item2['phone_num']; ?></h4>
+				
+						<h4 class="user__ifo_text"><span>Адрес:</span> <?php echo $item2['adress_user']; ?></h4>
+				
+						<h4 class="user__ifo_text"><span>Конфессия:</span> <?php echo $item2['denomination']; ?></h4>
+			
+						<h4 class="user__ifo_text"><span>Название церкви:</span> <?php echo $item2['church_name']; ?></h4>
+				
+						<h4 class="user__ifo_text"><span>Адрес церкви:</span> <?php echo $item2['church_adress']; ?></h4>
+				
+						<h4 class="user__ifo_text"><span>Номер пастора:</span> <?php echo $item2['pastor_num']; ?></h4>
+				
+						<h4 class="user__ifo_text"><span>Адрес электронной почты:</span> <?php echo $item2['email']; ?></h4>
+					</div>
+					
+			
+					
 		</div>
 
 			
@@ -61,31 +66,26 @@ include "../parts/header.php";
 			// объявление 
 
 			?>
+			<div class="ad">
+				<img class="ad_img" src="../<?php echo $row['photo'] ?>">
+				<div class="ad_info">
+					<h4 class="ad__info_text"> <span>№:</span> <?php echo $row['id']; ?></h4>
+					<h4 class="ad__info_text"> <span>Телефон:</span> <?php echo $row['phone_num']; ?></h4>
+					<h4 class="ad__info_text"> <span>Город:</span> <?php echo $row['city']; ?></h4>
+					<h4 class="ad__info_text"> <span>Адрес:</span> <?php echo $row['adress_kv']; ?></h4>
 
-			<p>
-				<h4>Номер объявлеия: <?php echo $row['id']; ?></h4>
-			<p>
-				<h4>Номер телефона: <?php echo $row['phone_num']; ?></h4>
-			<p>
-				<h4>Город: <?php echo $row['city']; ?></h4>
-			<p>
-				<h4>Адрес картиры: <?php echo $row['adress_kv']; ?></h4>
-			<p>
-				<img src="../<?php echo $row['photo'] ?>" style="width: 480px;">
-			</p>
-			
-			<a href="edit_ad.php?id=<?php echo $row['id'] ?>" style="color: black;">Редактировать объявление</a>
-			<h2>/***************************************************/</h2>
+				</div>
+
+				<a class="button ad_link" href="edit_ad.php?id=<?php echo $row['id'] ?>" >Редактировать</a>
+
+				
+			</div><!-- /.ad -->
 			<?php
 		}
-
 		?>
-
 		</div> 
-		
 	</div>
 </div>
-
 
 <?php
 	include "../parts/footer.php";
